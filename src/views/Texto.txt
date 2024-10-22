@@ -1,0 +1,6 @@
+Hola
+Este mensaje solo es un recordatorio, 
+estoy intentando hacer un commit y un push a un repositorio en gitHub, 
+el problema es que no recuerdo muy bien como se hace, 
+aparte de que tampoco recuerdo que pasaba cuando sacabas una nueva rama y desde ahi querias hacer el push,
+me cambie a la rama main para ver si puedo hacer el push sin problema y ver que en gitHub aparezca la otra rama
