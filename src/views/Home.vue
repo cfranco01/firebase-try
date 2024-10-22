@@ -5,5 +5,10 @@
 </template>
 
 <script setup>
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebaseConfig";
 
+onAuthStateChanged(auth, (user) => {
+  console.log(user);
+});
 </script>
