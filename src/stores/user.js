@@ -23,7 +23,7 @@ export const useUserStore = defineStore("userStore", {
           password
         );
         this.userData = { email: user.email, uid: user.uid };
-        router.push("/");
+        router.push("/home");
       } catch (error) {
         console.log(error);
       } finally {
@@ -39,7 +39,7 @@ export const useUserStore = defineStore("userStore", {
           password
         );
         this.userData = { email: user.email, uid: user.uid };
-        router.push("/");
+        router.push("/home");
       } catch (error) {
         console.log(error);
       } finally {
@@ -61,10 +61,7 @@ export const useUserStore = defineStore("userStore", {
           auth,
           (user) => {
             if (user) {
-              this.userData = {
-                email: user.email,
-                uid: user.uid,
-              };
+              this.userData = { email: user.email, uid: user.uid };
             } else {
               this.userData = null;
             }

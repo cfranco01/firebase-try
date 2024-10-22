@@ -5,18 +5,36 @@ import Home from "./views/Home.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 
-const requiereAuth = async (to, from, next) => {
+// const requireAuth = async (next) => {
+//   const userStore = useUserStore();
+//   const user = await userStore.currentUser();
+//   if (user) {
+//     next();
+//   } else {
+//     next("/login");
+//   }
+// };
+
+const requireAuth = async (to, from, next) => {
   const userStore = useUserStore();
+  userStore.loading = true;
   const user = await userStore.currentUser();
   if (user) {
-    next();
+      next();
   } else {
-    next("/login");
+      next("/login");
   }
+  userStore.loading = false;
 };
 
+// const routes = [
+//   { path: "/", component: Home, beforeEnter: requireAuth },
+//   { path: "/login", component: Login },
+//   { path: "/register", component: Register },
+// ];
+
 const routes = [
-  { path: "/", component: Home, beforeEnter: requiereAuth },
+  { path: "/home", component: Home, beforeEnter: requireAuth},
   { path: "/login", component: Login },
   { path: "/register", component: Register },
 ];
@@ -27,4 +45,3 @@ const router = createRouter({
 });
 
 export default router;
-
